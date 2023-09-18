@@ -19,7 +19,6 @@ public class LocatorsAndWebElements {
         Locator elements = page.locator("text =Elements");
         int sumElements = elements.count();
 
-        System.out.println(sumElements);
         elements.click();
 
         Locator widgets = page.locator("text =Widgets");
@@ -31,9 +30,10 @@ public class LocatorsAndWebElements {
 
         Locator selector = page.locator("select#oldSelectMenu option");
 
-
-
-
         int selectorSize = selector.count();
+        System.out.println(selectorSize);
+        for (int i = 0; i < selectorSize; i++) {
+            System.out.println(selector.nth(i).innerText());
+        }
     }
 }
