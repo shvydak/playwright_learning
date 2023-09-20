@@ -22,7 +22,6 @@ public class PlaywrightFactory {
 
         page = context.newPage();
         page.navigate("https://demoqa.com/");
-
     }
 
     @AfterSuite
