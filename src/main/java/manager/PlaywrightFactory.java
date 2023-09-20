@@ -1,42 +1,35 @@
 package manager;
 
 import com.microsoft.playwright.*;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
+
+import java.nio.file.Paths;
+
 
 public class PlaywrightFactory {
-    Playwright playwright;
-    Browser browser;
+    protected static Page page;
     BrowserContext context;
-    Page page;
 
-    public Page initBrowser(String browserName) {
 
-        System.out.println("Browser name is " + browserName);
-
-        playwright = Playwright.create();
-
-        // Select browser
-        switch (browserName.toLowerCase()) {
-            case "chromium":
-                browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
-                break;
-            case "firefox":
-                browser = playwright.firefox().launch(new BrowserType.LaunchOptions().setHeadless(false));
-                break;
-            case "safari":
-                browser = playwright.webkit().launch(new BrowserType.LaunchOptions().setHeadless(false));
-                break;
-            case "chrome":
-                browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(false));
-                break;
-            default:
-                System.out.println("Please select browser");
-                break;
-        }
-
+    @BeforeSuite
+    public void start() {
+        Playwright playwright = Playwright.create();
+        Browser browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
         context = browser.newContext();
+        // start tracing
+        context.tracing().start(new Tracing.StartOptions().setScreenshots(true).setSnapshots(true));
+
         page = context.newPage();
         page.navigate("https://demoqa.com/");
 
-        return page;
     }
+
+    @AfterSuite
+    public void stop() {
+        context.tracing().stop(new Tracing.StopOptions().setPath(Paths.get("output/Trace.zip")));
+        page.close();
+    }
+
+
 }

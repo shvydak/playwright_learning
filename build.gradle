@@ -10,7 +10,7 @@ repositories {
 }
 
 dependencies {
-    testImplementation 'org.testng:testng:7.8.0'
+    implementation 'org.testng:testng:7.8.0'
 
 
     implementation 'com.microsoft.playwright:playwright:1.37.0'
