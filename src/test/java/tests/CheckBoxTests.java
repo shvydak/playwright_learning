@@ -3,6 +3,7 @@ package tests;
 import main_page.elements.CheckBoxPage;
 import manager.PlaywrightFactory;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import main_page.MainPage;
@@ -20,7 +21,8 @@ public class CheckBoxTests extends PlaywrightFactory {
     public void checkBoxTest() {
         new CheckBoxPage(page)
                 .expandAll()
-                .clickOnDownloadsCheckBox(); // with assert that all needed checkbox "checked"
+                .clickOnDownloadsCheckBox()
+                .testChecked(); // assert that all needed checkbox "checked"
 
     }
 
@@ -28,6 +30,12 @@ public class CheckBoxTests extends PlaywrightFactory {
     public void makeScreenShotOfFullPage() {
         new MainPage(page)
                 .screenShotFUllPage();
+    }
+
+    @AfterSuite
+    public void returnToMainPage() {
+        new MainPage(page)
+                .goToMainPage();
     }
 
 }

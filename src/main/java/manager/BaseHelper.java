@@ -13,8 +13,12 @@ public class BaseHelper {
         this.page = page;
     }
 
-    public void screenShotFUllPage(){
+    public void screenShotFUllPage() {
         page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("output/lastScreenshotFullPage.png")).setFullPage(true));
+    }
+
+    public void screenShotFUllPage(String screenShotName) {
+        page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("output/screenshots/" + screenShotName + ".png")).setFullPage(true));
     }
 
 

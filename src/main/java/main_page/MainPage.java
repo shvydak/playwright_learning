@@ -1,5 +1,6 @@
 package main_page;
 
+import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import main_page.elements.ElementsPage;
 import manager.BaseHelper;
@@ -10,40 +11,46 @@ public class MainPage extends BaseHelper {
         super(page);
     }
 
-    private final String elements = "'Elements'";
-    private final String forms = "'Forms'";
-    private final String alerts = "'Alerts, Frame & Windows'";
-    private final String widgets = "'Widgets'";
-    private final String interactions = "'Interactions'";
-    private final String bookStore = "'Book Store Application'";
+    private final Locator headerLogo = page.locator("//img[@src='/images/Toolsqa.jpg']");
+    private final Locator elements = page.locator("'Elements'");
+    private final Locator forms = page.locator("'Forms'");
+    private final Locator alerts = page.locator("'Alerts, Frame & Windows'");
+    private final Locator widgets = page.locator("'Widgets'");
+    private final Locator interactions = page.locator("'Interactions'");
+    private final Locator bookStore = page.locator("'Book Store Application'");
 
     public ElementsPage openElements() {
-        page.locator(elements).click();
+        elements.click();
         return new ElementsPage(page);
     }
 
     public MainPage openForms() {
-        page.locator(forms).click();
+        forms.click();
         return this;
     }
 
     public MainPage openAlerts() {
-        page.locator(alerts).click();
+        alerts.click();
         return this;
     }
 
     public MainPage openWidgets() {
-        page.locator(widgets).click();
+        widgets.click();
         return this;
     }
 
     public MainPage openInteractions() {
-        page.locator(interactions).click();
+        interactions.click();
         return this;
     }
 
     public MainPage openBookStore() {
-        page.locator(bookStore).click();
+        bookStore.click();
+        return this;
+    }
+
+    public MainPage goToMainPage() {
+        headerLogo.click();
         return this;
     }
 }

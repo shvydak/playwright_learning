@@ -4,6 +4,7 @@ import manager.PlaywrightFactory;
 import manager.TestDataProvider;
 import models.TextBoxData;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import main_page.MainPage;
@@ -25,9 +26,16 @@ public class TextBoxTests extends PlaywrightFactory {
                 .submitWebForm(user)
                 .testAssertion(user); // comparing input/output test data
     }
+
     @AfterMethod
     public void makeScreenShotOfFullPage() {
         new MainPage(page)
                 .screenShotFUllPage();
+    }
+
+    @AfterSuite
+    public void returnToMainPage() {
+        new MainPage(page)
+                .goToMainPage();
     }
 }

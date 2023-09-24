@@ -17,6 +17,7 @@ public class CheckBoxPage extends BaseHelper {
     private final Locator checkBoxDownloads = page.locator("label").filter(new Locator.FilterOptions().setHasText("Downloads")).getByRole(AriaRole.IMG).first();
     private final Locator checkBoxWordFile = page.locator("label").filter(new Locator.FilterOptions().setHasText("Word File.doc")).getByRole(AriaRole.IMG).first();
     private final Locator checkBoxExcelFile = page.locator("label").filter(new Locator.FilterOptions().setHasText("Excel File.doc")).getByRole(AriaRole.IMG).first();
+    private final Locator resultBottomString = page.locator("id=result");
 
 
     public CheckBoxPage titleTextIs(String text) {
@@ -34,6 +35,13 @@ public class CheckBoxPage extends BaseHelper {
         Assert.assertTrue(checkBoxDownloads.isChecked());
         Assert.assertTrue(checkBoxWordFile.isChecked());
         Assert.assertTrue(checkBoxExcelFile.isChecked());
+        return this;
+    }
+
+    public CheckBoxPage testChecked() {
+        Assert.assertTrue(resultBottomString.textContent().contains(checkBoxExcelFile.textContent()));
+        Assert.assertTrue(resultBottomString.textContent().contains(checkBoxWordFile.textContent()));
+        Assert.assertTrue(resultBottomString.textContent().contains(checkBoxDownloads.textContent()));
         return this;
     }
 }
