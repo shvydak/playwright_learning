@@ -2,10 +2,7 @@ package tests;
 
 import main_page.elements.CheckBoxPage;
 import manager.PlaywrightFactory;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import main_page.MainPage;
 
 public class CheckBoxTests extends PlaywrightFactory {
@@ -32,7 +29,7 @@ public class CheckBoxTests extends PlaywrightFactory {
                 .screenShotFUllPage();
     }
 
-    @AfterSuite
+    @AfterClass
     public void returnToMainPage() {
         new MainPage(page)
                 .goToMainPage();

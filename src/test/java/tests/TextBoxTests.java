@@ -3,12 +3,11 @@ package tests;
 import manager.PlaywrightFactory;
 import manager.TestDataProvider;
 import models.TextBoxData;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import main_page.MainPage;
 import main_page.elements.TextBoxPage;
+
+import java.lang.reflect.Method;
 
 
 public class TextBoxTests extends PlaywrightFactory {
@@ -33,7 +32,7 @@ public class TextBoxTests extends PlaywrightFactory {
                 .screenShotFUllPage();
     }
 
-    @AfterSuite
+    @AfterClass
     public void returnToMainPage() {
         new MainPage(page)
                 .goToMainPage();

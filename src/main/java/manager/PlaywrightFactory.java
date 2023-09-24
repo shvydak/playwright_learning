@@ -2,8 +2,10 @@ package manager;
 
 import com.microsoft.playwright.*;
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
+import java.lang.reflect.Method;
 import java.nio.file.Paths;
 
 
@@ -29,6 +31,4 @@ public class PlaywrightFactory {
         context.tracing().stop(new Tracing.StopOptions().setPath(Paths.get("output/Trace.zip")));
         page.close();
     }
-
-
 }

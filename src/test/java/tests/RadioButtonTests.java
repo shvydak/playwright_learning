@@ -4,10 +4,9 @@ import main_page.MainPage;
 import main_page.elements.RadioButtonPage;
 import manager.BaseHelper;
 import manager.PlaywrightFactory;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
+
+import java.lang.reflect.Method;
 
 public class RadioButtonTests extends PlaywrightFactory {
     @BeforeClass
@@ -42,7 +41,7 @@ public class RadioButtonTests extends PlaywrightFactory {
                 .screenShotFUllPage();
     }
 
-    @AfterSuite
+    @AfterClass
     public void returnToMainPage() {
         new MainPage(page)
                 .goToMainPage();
