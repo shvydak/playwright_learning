@@ -13,7 +13,7 @@ public class ElementsPage extends BaseHelper {
     private final Locator checkBox = page.locator("'Check Box'");
     private final Locator radioButton = page.locator("'Radio Button'");
     private final String webTables = "''";
-    private final String Buttons = "''";
+    private final Locator buttons = page.locator("'Buttons'");
     private final String links = "''";
     private final String brokenLinks = "''";
     private final String uploadDownload = "''";
@@ -32,5 +32,10 @@ public class ElementsPage extends BaseHelper {
     public RadioButtonPage openRadioButton() {
         radioButton.click();
         return new RadioButtonPage(page);
+    }
+
+    public ButtonsPage openButtonsPage() {
+        buttons.click();
+        return new ButtonsPage(page);
     }
 }
