@@ -1,8 +1,8 @@
-package pages;
+package main_page;
 
 import com.microsoft.playwright.Page;
+import main_page.elements.ElementsPage;
 import manager.BaseHelper;
-import org.testng.reporters.jq.Main;
 
 public class MainPage extends BaseHelper {
 

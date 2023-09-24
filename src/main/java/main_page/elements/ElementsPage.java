@@ -1,5 +1,6 @@
-package pages;
+package main_page.elements;
 
+import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import manager.BaseHelper;
 
@@ -8,8 +9,8 @@ public class ElementsPage extends BaseHelper {
         super(page);
     }
 
-    private final String textBox = "'Text Box'";
-    private final String checkBox = "'Check Box'";
+    private final Locator textBox = page.locator("'Text Box'");
+    private final Locator checkBox = page.locator("'Check Box'");
     private final String radioButton = "''";
     private final String webTables = "''";
     private final String Buttons = "''";
@@ -18,9 +19,14 @@ public class ElementsPage extends BaseHelper {
     private final String uploadDownload = "''";
     private final String dynamicProperties = "''";
 
-    public TextBox openTextBox() {
-        page.locator(textBox).click();
-        return new TextBox(page);
+    public TextBoxPage openTextBox() {
+        textBox.click();
+        return new TextBoxPage(page);
+    }
+
+    public CheckBoxPage openCheckBox() {
+        checkBox.click();
+        return new CheckBoxPage(page);
     }
 
 }

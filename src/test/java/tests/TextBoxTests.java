@@ -3,10 +3,11 @@ package tests;
 import manager.PlaywrightFactory;
 import manager.TestDataProvider;
 import models.TextBoxData;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import pages.MainPage;
-import pages.TextBox;
+import main_page.MainPage;
+import main_page.elements.TextBoxPage;
 
 
 public class TextBoxTests extends PlaywrightFactory {
@@ -15,13 +16,18 @@ public class TextBoxTests extends PlaywrightFactory {
         new MainPage(page)
                 .openElements()
                 .openTextBox()
-                .titleTextIs("Text Box");
+                .titleTextIs("Text Box"); // check that "Text Box" page was opened
     }
 
     @Test(dataProvider = "textBox", dataProviderClass = TestDataProvider.class)
     public void test1(TextBoxData user) {
-        new TextBox(page)
+        new TextBoxPage(page)
                 .submitWebForm(user)
                 .testAssertion(user); // comparing input/output test data
+    }
+    @AfterMethod
+    public void makeScreenShotOfFullPage() {
+        new MainPage(page)
+                .screenShotFUllPage();
     }
 }
