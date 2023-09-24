@@ -13,12 +13,11 @@ public class TextBox extends BaseHelper {
     }
 
     Locator title = page.locator("//div[@class='main-header']");
-    Locator fullNameField = page.getByPlaceholder("Full Name");
+    Locator fullNameField = page.locator("id=userName");
     Locator emailField = page.locator("id=userEmail");
     Locator currAddress = page.locator("id=currentAddress");
     Locator permAddress = page.locator("id=permanentAddress");
     Locator submitButton = page.locator("id=submit");
-    Locator output = page.locator("id=output");
     Locator outputName = page.locator("id=name");
     Locator outputEmail = page.locator("id=email");
     Locator outputCurrentAddress = page.locator("id=currentAddress").last();
@@ -37,11 +36,6 @@ public class TextBox extends BaseHelper {
         currAddress.fill(user.getCurrentAddress());
         permAddress.fill(user.getPermanentAddress());
         submitButton.click();
-        return this;
-    }
-
-    public TextBox outputText() {
-        System.out.println(output.textContent());
         return this;
     }
 

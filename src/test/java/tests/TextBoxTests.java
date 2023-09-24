@@ -22,7 +22,6 @@ public class TextBoxTests extends PlaywrightFactory {
     public void test1(TextBoxData user) {
         new TextBox(page)
                 .submitWebForm(user)
-                .outputText()
                 .testAssertion(user); // comparing input/output test data
     }
 }
