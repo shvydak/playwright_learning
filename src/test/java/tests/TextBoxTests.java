@@ -1,6 +1,8 @@
 package tests;
 
 import manager.PlaywrightFactory;
+import manager.TestDataProvider;
+import models.TextBoxData;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.MainPage;
@@ -16,17 +18,11 @@ public class TextBoxTests extends PlaywrightFactory {
                 .titleTextIs("Text Box");
     }
 
-    @Test
-    public void test1() {
+    @Test(dataProvider = "textBox", dataProviderClass = TestDataProvider.class)
+    public void test1(TextBoxData user) {
         new TextBox(page)
-                .submitWebForm("Adarea","asd@asd.com","Haifa","Israel");
-//                .outputText();
-
+                .submitWebForm(user)
+                .outputText()
+                .testAssertion(user); // comparing input/output test data
     }
-    @Test
-    public void nothing(){
-        
-    }
-
-
 }

@@ -3,6 +3,7 @@ package pages;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import manager.BaseHelper;
+import models.TextBoxData;
 import org.testng.Assert;
 
 public class TextBox extends BaseHelper {
@@ -18,6 +19,10 @@ public class TextBox extends BaseHelper {
     Locator permAddress = page.locator("id=permanentAddress");
     Locator submitButton = page.locator("id=submit");
     Locator output = page.locator("id=output");
+    Locator outputName = page.locator("id=name");
+    Locator outputEmail = page.locator("id=email");
+    Locator outputCurrentAddress = page.locator("id=currentAddress").last();
+    Locator outputPermanentAddress = page.locator("id=permanentAddress").last();
 
     public TextBox titleTextIs(String text) {
         String res = title.textContent();
@@ -26,11 +31,11 @@ public class TextBox extends BaseHelper {
         return this;
     }
 
-    public TextBox submitWebForm(String fullName, String emailAddress, String currentAddress, String permanentAddress) {
-        fullNameField.fill(fullName);
-        emailField.fill(emailAddress);
-        currAddress.fill(currentAddress);
-        permAddress.fill(permanentAddress);
+    public TextBox submitWebForm(TextBoxData user) {
+        fullNameField.fill(user.getFullName());
+        emailField.fill(user.getEmail());
+        currAddress.fill(user.getCurrentAddress());
+        permAddress.fill(user.getPermanentAddress());
         submitButton.click();
         return this;
     }
@@ -38,5 +43,12 @@ public class TextBox extends BaseHelper {
     public TextBox outputText() {
         System.out.println(output.textContent());
         return this;
+    }
+
+    public void testAssertion(TextBoxData user) {
+        Assert.assertTrue(outputName.textContent().contains(user.getFullName()));
+        Assert.assertTrue(outputEmail.textContent().contains(user.getEmail()));
+        Assert.assertTrue(outputCurrentAddress.textContent().contains(user.getCurrentAddress()));
+        Assert.assertTrue(outputPermanentAddress.textContent().contains(user.getPermanentAddress()));
     }
 }
