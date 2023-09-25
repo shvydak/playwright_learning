@@ -13,6 +13,7 @@ public class ButtonsPage extends BaseHelper {
 
     private final Locator titleText = page.locator(titleLocator);
     private final Locator doubleClickButton = page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Double Click Me"));
+    private final Locator doubleClickMessage = page.locator("id=doubleClickMessage");
 
     public ButtonsPage titleTextIs(String text) {
         Assert.assertEquals(titleText.textContent(), text);
@@ -21,6 +22,11 @@ public class ButtonsPage extends BaseHelper {
 
     public ButtonsPage doubleClickButtonClick() {
         doubleClickButton.dblclick();
+        return this;
+    }
+
+    public ButtonsPage doubleClickMessageAppeared() {
+        Assert.assertEquals(doubleClickMessage.textContent(), "You have done a double click");
         return this;
     }
 }

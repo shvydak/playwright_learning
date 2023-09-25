@@ -3,6 +3,8 @@ package tests;
 import main_page.MainPage;
 import main_page.elements.ButtonsPage;
 import manager.PlaywrightFactory;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -18,6 +20,19 @@ public class ButtonsTests extends PlaywrightFactory {
     @Test
     public void doubleClickButtonTest() {
         new ButtonsPage(page)
-                .doubleClickButtonClick();
+                .doubleClickButtonClick()
+                .doubleClickMessageAppeared(); // assert that text message appeared
+    }
+
+    @AfterMethod
+    public void makeScreenshot() {
+        new MainPage(page)
+                .screenShotFUllPage();
+    }
+
+    @AfterClass
+    public void goToMainPage() {
+        new MainPage(page)
+                .goToMainPage();
     }
 }
