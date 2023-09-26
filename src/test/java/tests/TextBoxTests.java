@@ -7,8 +7,6 @@ import org.testng.annotations.*;
 import main_page.MainPage;
 import main_page.elements.TextBoxPage;
 
-import java.lang.reflect.Method;
-
 
 public class TextBoxTests extends PlaywrightFactory {
     @BeforeClass(description = "TB - 0001")

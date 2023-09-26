@@ -16,7 +16,7 @@ public class ElementsPage extends BaseHelper {
     private final Locator buttons = page.locator("'Buttons'");
     private final String links = "''";
     private final String brokenLinks = "''";
-    private final String uploadDownload = "''";
+    private final Locator uploadDownload = page.getByText("Upload and Download");
     private final String dynamicProperties = "''";
 
     public TextBoxPage openTextBox() {
@@ -37,5 +37,10 @@ public class ElementsPage extends BaseHelper {
     public ButtonsPage openButtonsPage() {
         buttons.click();
         return new ButtonsPage(page);
+    }
+
+    public UploadDownloadPage openUploadDownloadPage() {
+        uploadDownload.click();
+        return new UploadDownloadPage(page);
     }
 }
