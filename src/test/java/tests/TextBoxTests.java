@@ -18,7 +18,7 @@ public class TextBoxTests extends PlaywrightFactory {
     }
 
     @Test(dataProvider = "textBox", dataProviderClass = TestDataProvider.class)
-    public void test1(TextBoxData user) {
+    public void submitUserFormTest(TextBoxData user) {
         new TextBoxPage(page)
                 .submitWebForm(user)
                 .testAssertion(user); // comparing input/output test data
