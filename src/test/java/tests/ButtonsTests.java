@@ -24,6 +24,20 @@ public class ButtonsTests extends PlaywrightFactory {
                 .doubleClickMessageAppeared(); // assert that text message appeared
     }
 
+    @Test
+    public void rightClickButtonTest() {
+        new ButtonsPage(page)
+                .rightClickMeButtonClick()
+                .rightClickMeButtonMessageAppeared(); // assert that text message appeared
+    }
+
+    @Test
+    public void clickButton() {
+        new ButtonsPage(page)
+                .clickMeButtonClick()
+                .clickMeButtonMessageAppeared(); // assert that text message appeared
+    }
+
     @AfterMethod
     public void makeScreenshot() {
         new MainPage(page)
