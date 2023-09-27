@@ -9,6 +9,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class TestDataProvider {
+
     @DataProvider
     public Iterator<Object[]> textBox() {
         List<Object[]> list = new ArrayList<>();
@@ -27,6 +28,18 @@ public class TestDataProvider {
             System.out.println("Print i -> " + i);
             list.add(new Object[]{new Integer(i)});
         }
+        return list.iterator();
+    }
+
+    @DataProvider
+    public Iterator<Object[]> selectValue() {
+        List<Object[]> list = new ArrayList<>();
+        list.add(new Object[]{"Group 1, option 1"});
+        list.add(new Object[]{"Group 1, option 2"});
+        list.add(new Object[]{"Group 2, option 1"});
+        list.add(new Object[]{"Group 2, option 2"});
+        list.add(new Object[]{"A root option"});
+        list.add(new Object[]{"Another root option"});
         return list.iterator();
     }
 }

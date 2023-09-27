@@ -25,10 +25,26 @@ public class SelectMenuPage extends BaseHelper {
     private final Locator oldStyleSelectMenuSelectorOption = page.locator("//select[@id='oldSelectMenu']/option");
     private final Locator standardMultiSelect = page.locator("id=cars");
     private final Locator selectValue = page.locator("id=withOptGroup");
+    private final Locator selectValueInput = page.locator(".css-1uccc91-singleValue");
+    private final Locator multiselectDropDownInput = page.locator(".css-2b097c-container").last();
+    private final Locator multiselectDropDownInputedElements = page.locator(".css-12jo7m5");
 
-    public SelectMenuPage selectValue() {
+    public SelectMenuPage multiselectDropDown() {
+        multiselectDropDownInput.click();
+        multiselectDropDownInput.type("Green");
+        multiselectDropDownInput.press("Enter");
+        page.keyboard().press("Escape");
+        page.waitForTimeout(5000);
+        return this;
+    }
+
+    public SelectMenuPage selectValue(String text) {
         selectValue.click();
-        page.keyboard().type("Gro");
+        selectValue.type(text);
+        selectValue.press("Enter");
+        String res = selectValueInput.textContent();
+        System.out.println(res);
+        Assert.assertEquals(text, res);
         return this;
     }
 

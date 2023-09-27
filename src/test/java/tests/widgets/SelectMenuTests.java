@@ -18,10 +18,16 @@ public class SelectMenuTests extends PlaywrightFactory {
                 .titleTextIs("Select Menu"); // with assert title name
     }
 
-    @Test
-    public void selectValueTest() {
+    @Test(dataProvider = "selectValue", dataProviderClass = TestDataProvider.class)
+    public void selectValueTest(String text) {
         new SelectMenuPage(page)
-                .selectValue();
+                .selectValue(text);
+    }
+
+    @Test
+    public void multiselectDropDownTest() {
+        new SelectMenuPage(page)
+                .multiselectDropDown();
     }
 
     @Test(dataProvider = "select", dataProviderClass = TestDataProvider.class)
