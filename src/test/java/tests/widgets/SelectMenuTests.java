@@ -24,10 +24,10 @@ public class SelectMenuTests extends PlaywrightFactory {
                 .selectValue(text);
     }
 
-    @Test
-    public void multiselectDropDownTest() {
+    @Test(dataProvider = "multiselectDropDown", dataProviderClass = TestDataProvider.class)
+    public void multiselectDropDownTest(String[] color) {
         new SelectMenuPage(page)
-                .multiselectDropDown(new String[]{"Green", "Blue", "Black", "Red"});
+                .multiselectDropDown(color);
     }
 
     @Test(dataProvider = "select", dataProviderClass = TestDataProvider.class)

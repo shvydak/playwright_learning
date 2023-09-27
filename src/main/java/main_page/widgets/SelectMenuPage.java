@@ -35,11 +35,11 @@ public class SelectMenuPage extends BaseHelper {
         for (int i = 0; i < color.length; i++) {
             multiselectDropDownInput.type(color[i]);
             multiselectDropDownInput.press("Enter");
-            output += color[i] + " ";
+            String res = multiselectDropDownInput.innerText();
+            Assert.assertTrue(res.contains(color[i]));
         }
         page.keyboard().press("Escape");
-        String res = multiselectDropDownInput.innerText();
-        System.out.println(output);
+        page.reload();
         return this;
     }
 

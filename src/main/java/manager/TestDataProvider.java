@@ -42,4 +42,14 @@ public class TestDataProvider {
         list.add(new Object[]{"Another root option"});
         return list.iterator();
     }
+
+    @DataProvider
+    public Iterator<Object[]> multiselectDropDown() {
+        List<Object[]> list = new ArrayList<>();
+        list.add(new Object[]{new String[]{"Green"}});
+        list.add(new Object[]{new String[]{"Green", "Blue"}});
+        list.add(new Object[]{new String[]{"Green", "Blue", "Black"}});
+        list.add(new Object[]{new String[]{"Green", "Blue", "Black", "Red"}});
+        return list.iterator();
+    }
 }
