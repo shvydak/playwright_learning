@@ -3,7 +3,6 @@ package tests.widgets;
 import main_page.MainPage;
 import main_page.widgets.SelectMenuPage;
 import manager.PlaywrightFactory;
-import manager.TestDataProvider;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -17,11 +16,11 @@ public class SelectMenuTests extends PlaywrightFactory {
                 .titleTextIs("Select Menu"); // with assert title name
     }
 
-//    @Test(dataProvider = "select", dataProviderClass = TestDataProvider.class)
+    //    @Test(dataProvider = "select", dataProviderClass = TestDataProvider.class)
     @Test
     public void oldStyleSelectMenuTest() {
         new SelectMenuPage(page)
-                .selectOption("White"); // with assert select
+                .selectOption(10); // with assert select
     }
 
     @AfterMethod

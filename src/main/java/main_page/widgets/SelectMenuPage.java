@@ -27,4 +27,13 @@ public class SelectMenuPage extends BaseHelper {
         Assert.assertEquals(value, res1);
         return this;
     }
+
+    public SelectMenuPage selectOption(int value) {
+        int length = oldStyleSelectMenuSelectorOption.count();
+        oldStyleSelectMenuSelector.selectOption(String.valueOf(value));
+        int res = Integer.parseInt(oldStyleSelectMenuSelector.inputValue());
+        String res1 = oldStyleSelectMenuSelectorOption.nth(res).innerText();
+        Assert.assertEquals(value, res);
+        return this;
+    }
 }
