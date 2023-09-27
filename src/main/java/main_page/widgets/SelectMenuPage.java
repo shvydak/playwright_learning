@@ -29,12 +29,17 @@ public class SelectMenuPage extends BaseHelper {
     private final Locator multiselectDropDownInput = page.locator(".css-2b097c-container").last();
     private final Locator multiselectDropDownInputedElements = page.locator(".css-12jo7m5");
 
-    public SelectMenuPage multiselectDropDown() {
+    public SelectMenuPage multiselectDropDown(String[] color) {
+        String output = "";
         multiselectDropDownInput.click();
-        multiselectDropDownInput.type("Green");
-        multiselectDropDownInput.press("Enter");
+        for (int i = 0; i < color.length; i++) {
+            multiselectDropDownInput.type(color[i]);
+            multiselectDropDownInput.press("Enter");
+            output += color[i] + " ";
+        }
         page.keyboard().press("Escape");
-        page.waitForTimeout(5000);
+        String res = multiselectDropDownInput.innerText();
+        System.out.println(output);
         return this;
     }
 
