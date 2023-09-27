@@ -27,10 +27,8 @@ public class SelectMenuPage extends BaseHelper {
     private final Locator selectValue = page.locator("id=withOptGroup");
     private final Locator selectValueInput = page.locator(".css-1uccc91-singleValue");
     private final Locator multiselectDropDownInput = page.locator(".css-2b097c-container").last();
-    private final Locator multiselectDropDownInputedElements = page.locator(".css-12jo7m5");
 
     public SelectMenuPage multiselectDropDown(String[] color) {
-        String output = "";
         multiselectDropDownInput.click();
         for (int i = 0; i < color.length; i++) {
             multiselectDropDownInput.type(color[i]);
@@ -39,7 +37,10 @@ public class SelectMenuPage extends BaseHelper {
             Assert.assertTrue(res.contains(color[i]));
         }
         page.keyboard().press("Escape");
-        page.reload();
+        for (int i = 0; i < color.length; i++) {
+            multiselectDropDownInput.click();
+            multiselectDropDownInput.press("Backspace");
+        }
         return this;
     }
 
