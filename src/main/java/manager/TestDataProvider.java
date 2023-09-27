@@ -18,4 +18,15 @@ public class TestDataProvider {
                 .setPermanentAddress(Faker.instance().address().secondaryAddress())});
         return list.iterator();
     }
+
+    @DataProvider // ??? TO REMOVE
+    public Iterator<Object[]> select() {
+        List<Object[]> list = new ArrayList<>();
+        list.add(new Object[]{new String("3")});
+//        for (int i = 0; i < 10; i++) {
+//            System.out.println("Print i -> " + i);
+//            list.add(new Object[]{i + ""});
+//        }
+        return list.iterator();
+    }
 }

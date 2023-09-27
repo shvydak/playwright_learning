@@ -1,4 +1,4 @@
-package tests;
+package tests.webelements;
 
 import manager.PlaywrightFactory;
 import manager.TestDataProvider;

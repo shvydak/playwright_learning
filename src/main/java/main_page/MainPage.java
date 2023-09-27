@@ -4,6 +4,7 @@ import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.WaitForSelectorState;
 import main_page.elements.ElementsPage;
+import main_page.widgets.WidgetsPage;
 import manager.BaseHelper;
 import org.testng.Assert;
 
@@ -37,9 +38,9 @@ public class MainPage extends BaseHelper {
         return this;
     }
 
-    public MainPage openWidgets() {
+    public WidgetsPage openWidgets() {
         widgets.click();
-        return this;
+        return new WidgetsPage(page);
     }
 
     public MainPage openInteractions() {

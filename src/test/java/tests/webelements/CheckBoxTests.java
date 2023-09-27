@@ -1,4 +1,4 @@
-package tests;
+package tests.webelements;
 
 import main_page.elements.CheckBoxPage;
 import manager.PlaywrightFactory;

@@ -1,4 +1,4 @@
-package tests;
+package tests.webelements;
 
 import main_page.MainPage;
 import main_page.elements.UploadDownloadPage;
