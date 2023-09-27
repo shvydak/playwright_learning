@@ -1,6 +1,7 @@
 package main_page.widgets;
 
 import com.microsoft.playwright.ElementHandle;
+import com.microsoft.playwright.Keyboard;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.SelectOption;
@@ -23,9 +24,11 @@ public class SelectMenuPage extends BaseHelper {
     private final Locator oldStyleSelectMenuSelector = page.locator("id=oldSelectMenu");
     private final Locator oldStyleSelectMenuSelectorOption = page.locator("//select[@id='oldSelectMenu']/option");
     private final Locator standardMultiSelect = page.locator("id=cars");
+    private final Locator selectValue = page.locator("id=withOptGroup");
 
-    public SelectMenuPage multiSelect(String[] car) {
-        standardMultiSelect.selectOption(car);
+    public SelectMenuPage selectValue() {
+        selectValue.click();
+        page.keyboard().type("Gro");
         return this;
     }
 
@@ -45,5 +48,10 @@ public class SelectMenuPage extends BaseHelper {
         String res1 = oldStyleSelectMenuSelectorOption.nth(res).innerText();
         Assert.assertEquals(value, res);
         return this;
+    }
+
+    public SelectMenuPage multiSelect(String[] car) {
+        standardMultiSelect.selectOption(car);
+        return this; // TODO Assert
     }
 }

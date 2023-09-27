@@ -18,6 +18,12 @@ public class SelectMenuTests extends PlaywrightFactory {
                 .titleTextIs("Select Menu"); // with assert title name
     }
 
+    @Test
+    public void selectValueTest() {
+        new SelectMenuPage(page)
+                .selectValue();
+    }
+
     @Test(dataProvider = "select", dataProviderClass = TestDataProvider.class)
     public void oldStyleSelectMenuTestIndexValue(int value) {
         new SelectMenuPage(page)
