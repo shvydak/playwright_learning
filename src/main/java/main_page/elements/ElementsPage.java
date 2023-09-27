@@ -17,7 +17,7 @@ public class ElementsPage extends BaseHelper {
     private final String links = "''";
     private final String brokenLinks = "''";
     private final Locator uploadDownload = page.getByText("Upload and Download");
-    private final String dynamicProperties = "''";
+    private final Locator dynamicProperties = page.locator("'Dynamic Properties'");
 
     public TextBoxPage openTextBox() {
         textBox.click();
@@ -42,5 +42,10 @@ public class ElementsPage extends BaseHelper {
     public UploadDownloadPage openUploadDownloadPage() {
         uploadDownload.click();
         return new UploadDownloadPage(page);
+    }
+
+    public DynamicPropertiesPage opendynamicPropertiesPage() {
+        dynamicProperties.click();
+        return new DynamicPropertiesPage(page);
     }
 }

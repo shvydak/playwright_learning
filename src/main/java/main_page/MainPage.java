@@ -2,8 +2,10 @@ package main_page;
 
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
+import com.microsoft.playwright.options.WaitForSelectorState;
 import main_page.elements.ElementsPage;
 import manager.BaseHelper;
+import org.testng.Assert;
 
 public class MainPage extends BaseHelper {
 
@@ -18,6 +20,7 @@ public class MainPage extends BaseHelper {
     private final Locator widgets = page.locator("'Widgets'");
     private final Locator interactions = page.locator("'Interactions'");
     private final Locator bookStore = page.locator("'Book Store Application'");
+    private final Locator mainPageImage = page.getByAltText("Selenium Online Training");
 
     public ElementsPage openElements() {
         elements.click();
@@ -51,6 +54,8 @@ public class MainPage extends BaseHelper {
 
     public MainPage goToMainPage() {
         headerLogo.click();
+        mainPageImage.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
+        Assert.assertTrue(mainPageImage.isVisible());
         return this;
     }
 }

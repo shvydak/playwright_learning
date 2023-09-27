@@ -2,11 +2,9 @@ package tests;
 
 import main_page.MainPage;
 import main_page.elements.RadioButtonPage;
-import manager.BaseHelper;
 import manager.PlaywrightFactory;
 import org.testng.annotations.*;
 
-import java.lang.reflect.Method;
 
 public class RadioButtonTests extends PlaywrightFactory {
     @BeforeClass
