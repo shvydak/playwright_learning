@@ -1,9 +1,13 @@
 package main_page.widgets;
 
+import com.microsoft.playwright.ElementHandle;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
+import com.microsoft.playwright.options.SelectOption;
 import manager.BaseHelper;
 import org.testng.Assert;
+
+import java.util.logging.Handler;
 
 public class SelectMenuPage extends BaseHelper {
     public SelectMenuPage(Page page) {
@@ -18,6 +22,12 @@ public class SelectMenuPage extends BaseHelper {
     private final Locator titleText = page.locator(BaseHelper.titleLocator);
     private final Locator oldStyleSelectMenuSelector = page.locator("id=oldSelectMenu");
     private final Locator oldStyleSelectMenuSelectorOption = page.locator("//select[@id='oldSelectMenu']/option");
+    private final Locator standardMultiSelect = page.locator("id=cars");
+
+    public SelectMenuPage multiSelect(String[] car) {
+        standardMultiSelect.selectOption(car);
+        return this;
+    }
 
     public SelectMenuPage selectOption(String value) {
         int length = oldStyleSelectMenuSelectorOption.count();

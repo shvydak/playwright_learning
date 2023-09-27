@@ -4,6 +4,7 @@ import main_page.MainPage;
 import main_page.widgets.SelectMenuPage;
 import manager.PlaywrightFactory;
 import manager.TestDataProvider;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -29,9 +30,21 @@ public class SelectMenuTests extends PlaywrightFactory {
                 .selectOption("Yellow"); // with assert select
     }
 
+    @Test
+    public void standardMultiSelectTest() {
+        new SelectMenuPage(page)
+                .multiSelect(new String[]{"Saab", "Opel"}); // TODO Assert
+    }
+
     @AfterMethod
     public void makeScreenshot() {
         new MainPage(page)
                 .screenShotFUllPage();
+    }
+
+    @AfterClass
+    public void returnToMainPage() {
+        new MainPage(page)
+                .goToMainPage();
     }
 }
