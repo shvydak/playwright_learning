@@ -10,9 +10,15 @@ public class WidgetsPage extends BaseHelper {
     }
 
     private final Locator selectMenu = page.getByText("Select Menu");
+    private final Locator Accordian = page.getByText("Accordian");
 
     public SelectMenuPage openSelectMenuPage() {
         selectMenu.click();
         return new SelectMenuPage(page);
+    }
+
+    public AccordianPage openAccordianPage() {
+        Accordian.click();
+        return new AccordianPage(page);
     }
 }
