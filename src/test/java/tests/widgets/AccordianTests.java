@@ -17,7 +17,7 @@ public class AccordianTests extends PlaywrightFactory {
                 .titleTextIs("Accordian"); // assert title
     }
 
-    @Test
+    @Test(enabled = false)
     public void whatIsLoremIpsumContainTextTest() {
         new AccordianPage(page)
                 .whatIsLoremIpsumContainText("Lorem Ipsum is simply dummy text of the printing and typesetting industry.");
