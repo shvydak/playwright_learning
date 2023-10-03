@@ -10,7 +10,8 @@ public class WidgetsPage extends BaseHelper {
     }
 
     private final Locator selectMenu = page.getByText("Select Menu");
-    private final Locator Accordian = page.getByText("Accordian");
+    private final Locator accordian = page.getByText("Accordian");
+    private final Locator progressBar = page.getByText("Progress Bar");
 
     public SelectMenuPage openSelectMenuPage() {
         selectMenu.click();
@@ -18,7 +19,12 @@ public class WidgetsPage extends BaseHelper {
     }
 
     public AccordianPage openAccordianPage() {
-        Accordian.click();
+        accordian.click();
         return new AccordianPage(page);
+    }
+
+    public ProgressBarPage openProgressBarPage() {
+        progressBar.click();
+        return new ProgressBarPage(page);
     }
 }
