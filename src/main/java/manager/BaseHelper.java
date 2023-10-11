@@ -1,6 +1,5 @@
 package manager;
 
-import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 
 import java.nio.file.Paths;
@@ -20,7 +19,6 @@ public class BaseHelper {
     public void screenShotFUllPage(String screenShotName) {
         page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("output/screenshots/" + screenShotName + ".png")).setFullPage(true));
     }
-
 
 
 }

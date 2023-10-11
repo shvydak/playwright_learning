@@ -16,8 +16,26 @@ public class ToolTipsHoverTests extends PlaywrightFactory {
     }
 
     @Test
-    public void hoverTest() {
+    public void hoverButtonTest() {
         new ToolTips(page)
-                .screenShotFUllPage();
+                .hoverMeToSeeButtonHoverTextContains("You hovered over the Button"); // assertion
+    }
+
+    @Test
+    public void hoverInputTest() {
+        new ToolTips(page)
+                .hoverMeToSeeInputHoverTextContains("You hovered over the text field"); // assertion
+    }
+
+    @Test
+    public void hoverContraryLinkTest() {
+        new ToolTips(page)
+                .hoverMeToSeeContraryHoverTextContains("You hovered over the Contrary"); // assertion
+    }
+
+    @Test
+    public void hoverDateLinkTest() {
+        new ToolTips(page)
+                .hoverMeToSeeDateHoverTextContains("You hovered over the 1.10.32"); // assertion
     }
 }
