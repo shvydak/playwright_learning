@@ -13,6 +13,7 @@ public class WidgetsPage extends BaseHelper {
     private final Locator accordian = page.getByText("Accordian");
     private final Locator progressBar = page.getByText("Progress Bar");
     private final Locator toolTips = page.getByText("Tool Tips");
+    private final Locator tabs = page.getByText("Tabs");
 
     public SelectMenuPage openSelectMenuPage() {
         selectMenu.click();
@@ -32,5 +33,10 @@ public class WidgetsPage extends BaseHelper {
     public ToolTips openToolTipsPage() {
         toolTips.click();
         return new ToolTips(page);
+    }
+
+    public TabsPage openTabsPage() {
+        tabs.click();
+        return new TabsPage(page);
     }
 }
