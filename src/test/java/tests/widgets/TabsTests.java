@@ -3,6 +3,7 @@ package tests.widgets;
 import main_page.MainPage;
 import main_page.widgets.TabsPage;
 import manager.PlaywrightFactory;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -37,5 +38,11 @@ public class TabsTests extends PlaywrightFactory {
     public void moreTabTest() {
         new TabsPage(page)
                 .moreTabIsDisable();
+    }
+
+    @AfterClass
+    public void returnToMainPage() {
+        new MainPage(page)
+                .goToMainPage();
     }
 }

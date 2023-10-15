@@ -3,6 +3,7 @@ package tests.widgets;
 import main_page.MainPage;
 import main_page.widgets.ToolTips;
 import manager.PlaywrightFactory;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -37,5 +38,11 @@ public class ToolTipsHoverTests extends PlaywrightFactory {
     public void hoverDateLinkTest() {
         new ToolTips(page)
                 .hoverMeToSeeDateHoverTextContains("You hovered over the 1.10.32"); // assertion
+    }
+
+    @AfterClass
+    public void returnToMainPage() {
+        new MainPage(page)
+                .goToMainPage();
     }
 }

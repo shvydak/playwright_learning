@@ -31,4 +31,5 @@ public class PlaywrightFactory {
         context.tracing().stop(new Tracing.StopOptions().setPath(Paths.get("output/Trace.zip")));
         page.close();
     }
+
 }
