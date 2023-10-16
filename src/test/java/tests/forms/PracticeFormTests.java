@@ -1,9 +1,11 @@
 package tests.forms;
 
 import main_page.MainPage;
+import main_page.forms.PracticeFormPage;
 import manager.PlaywrightFactory;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+import manager.TestDataProvider;
+import models.PracticeFormModel;
+import org.testng.annotations.*;
 
 public class PracticeFormTests extends PlaywrightFactory {
     @BeforeClass
@@ -14,9 +16,18 @@ public class PracticeFormTests extends PlaywrightFactory {
                 .titleTextIs("Practice Form");
     }
 
-    @Test(description = "positive")
-    public void fillAllRequiredFields() {
+    @Test(description = "positive", dataProvider = "practiceFormTests", dataProviderClass = TestDataProvider.class)
+    public void fillAllRequiredFields(PracticeFormModel user) {
+        new
+                PracticeFormPage(page)
+                .fillPracticeForm(user)
+                .screenShotFUllPage(); //WO Assertion (the BUG present on the site)
+    }
 
+    @AfterClass
+    public void goToMainPage() {
+        new MainPage(page)
+                .goToMainPage();
     }
 
 }

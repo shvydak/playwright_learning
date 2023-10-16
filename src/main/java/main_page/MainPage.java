@@ -61,4 +61,5 @@ public class MainPage extends BaseHelper {
         Assert.assertTrue(mainPageImage.isVisible());
         return this;
     }
+
 }

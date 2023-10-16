@@ -13,8 +13,9 @@ public class PracticeFormModel {
     private String firstName;
     private String lastName;
     private String email;
-    private boolean genderMale;
+    private String gender;
     private String mobileNumber;
+    private String[] subject;
     private boolean hobieSport;
     private boolean hobieReading;
     private boolean hobieMusic;

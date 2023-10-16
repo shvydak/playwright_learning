@@ -1,12 +1,17 @@
 package main_page.forms;
 
+import com.github.javafaker.Faker;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
+import com.microsoft.playwright.options.AriaRole;
 import manager.BaseHelper;
+import manager.PracticeFormInterface;
 import models.PracticeFormModel;
 import org.testng.Assert;
 
-public class PracticeFormPage extends BaseHelper {
+import java.nio.file.Paths;
+
+public class PracticeFormPage extends BaseHelper implements PracticeFormInterface {
     public PracticeFormPage(Page page) {
         super(page);
     }
@@ -15,21 +20,54 @@ public class PracticeFormPage extends BaseHelper {
     private final Locator firstNameInput = page.locator("id=firstName");
     private final Locator lastNameInput = page.locator("id=lastName");
     private final Locator emailInput = page.locator("id=userEmail");
-    private final Locator maleRadioButton = page.locator("id=gender-radio-1");
-    private final Locator femaleRadioButton = page.locator("id=gender-radio-2");
-    private final Locator otherRadioButton = page.locator("id=gender-radio-3");
+    private final Locator maleRadioButton = page.getByText("Male", new Page.GetByTextOptions().setExact(true));
+    private final Locator femaleRadioButton = page.getByText("Female");
+    private final Locator otherRadioButton = page.getByText("Other");
     private final Locator mobileNumber = page.locator("id=userNumber");
     private final Locator subjects = page.locator("id=subjectsContainer");
-    private final Locator sportCheckBox = page.locator("id=hobbies-checkbox-1");
-    private final Locator readingCheckBox = page.locator("id=hobbies-checkbox-2");
-    private final Locator musicCheckBox = page.locator("id=hobbies-checkbox-3");
-    private final Locator uploadPicture = page.locator("id=uploadPicture");
+    private final Locator sportCheckBox = page.getByText("Sports");
+    private final Locator readingCheckBox = page.getByText("Reading");
+    private final Locator musicCheckBox = page.getByText("Music");
+    private final Locator uploadPicture = page.getByLabel("Select picture");
     private final Locator currentAddress = page.locator("id=currentAddress");
     private final Locator state = page.locator("id=state");
     private final Locator city = page.locator("id=city");
+    private final Locator submitButton = page.locator("//button[@id='submit']");
 
     public PracticeFormPage fillPracticeForm(PracticeFormModel user) {
-        firstNameInput.fill(user.getFirstName());
+        if (user.getFirstName() != null)
+            firstNameInput.fill(user.getFirstName());
+        if (user.getLastName() != null)
+            lastNameInput.fill(user.getLastName());
+        if (user.getEmail() != null)
+            emailInput.fill(user.getEmail());
+        if (user.getGender() != null) {
+            if (user.getGender().toLowerCase().equals(PracticeFormInterface.MALE)) {
+                maleRadioButton.click();
+            }
+            if (user.getGender().toLowerCase().equals(PracticeFormInterface.FEMALE)) {
+                femaleRadioButton.click();
+            }
+            if (user.getGender().equalsIgnoreCase(PracticeFormInterface.OTHER)) {
+                otherRadioButton.click();
+            }
+        }
+        if (user.getMobileNumber() != null)
+            mobileNumber.fill(user.getMobileNumber());
+        if (user.isHobieSport())
+            sportCheckBox.check();
+        if (user.isHobieReading())
+            readingCheckBox.check();
+        if (user.isHobieMusic())
+            musicCheckBox.check();
+        if (user.getPicture() != null) {
+            uploadPicture.setInputFiles(Paths.get(user.getPicture()));
+            // find file name only
+            String[] arr = user.getPicture().split("/");
+            String fileName = arr[arr.length - 1];
+        }
+        if (user.getCurrentAddress() != null)
+            currentAddress.type(user.getCurrentAddress());
         return this;
     }
 
