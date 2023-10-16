@@ -29,7 +29,7 @@ public class PracticeFormPage extends BaseHelper {
     private final Locator city = page.locator("id=city");
 
     public PracticeFormPage fillPracticeForm(PracticeFormModel user) {
-        PracticeFormModel user1;
+        firstNameInput.fill(user.getFirstName());
         return this;
     }
 
