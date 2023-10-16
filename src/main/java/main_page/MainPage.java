@@ -4,6 +4,8 @@ import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.WaitForSelectorState;
 import main_page.elements.ElementsPage;
+import main_page.forms.Forms;
+import main_page.forms.PracticeFormPage;
 import main_page.widgets.WidgetsPage;
 import manager.BaseHelper;
 import org.testng.Assert;
@@ -28,9 +30,9 @@ public class MainPage extends BaseHelper {
         return new ElementsPage(page);
     }
 
-    public MainPage openForms() {
+    public Forms openForms() {
         forms.click();
-        return this;
+        return new Forms(page);
     }
 
     public MainPage openAlerts() {
