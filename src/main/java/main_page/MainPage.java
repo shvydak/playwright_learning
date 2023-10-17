@@ -6,6 +6,7 @@ import com.microsoft.playwright.options.WaitForSelectorState;
 import main_page.elements.ElementsPage;
 import main_page.forms.Forms;
 import main_page.forms.PracticeFormPage;
+import main_page.interactions.InteractionsPage;
 import main_page.widgets.WidgetsPage;
 import manager.BaseHelper;
 import org.testng.Assert;
@@ -45,9 +46,9 @@ public class MainPage extends BaseHelper {
         return new WidgetsPage(page);
     }
 
-    public MainPage openInteractions() {
+    public InteractionsPage openInteractions() {
         interactions.click();
-        return this;
+        return new InteractionsPage(page);
     }
 
     public MainPage openBookStore() {
@@ -61,5 +62,6 @@ public class MainPage extends BaseHelper {
         Assert.assertTrue(mainPageImage.isVisible());
         return this;
     }
+
 
 }
