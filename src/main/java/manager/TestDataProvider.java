@@ -1,6 +1,7 @@
 package manager;
 
 import com.github.javafaker.Faker;
+import models.PracticeFormInterface;
 import models.PracticeFormModel;
 import models.TextBoxData;
 import org.testng.annotations.DataProvider;

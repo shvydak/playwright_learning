@@ -20,5 +20,9 @@ public class BaseHelper {
         page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("output/screenshots/" + screenShotName + ".png")).setFullPage(true));
     }
 
+    public void reloadPage() {
+        page.reload();
+    }
+
 
 }

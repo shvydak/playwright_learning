@@ -1,4 +1,4 @@
-package manager;
+package models;
 
 public interface PracticeFormInterface {
     String MALE = "male";

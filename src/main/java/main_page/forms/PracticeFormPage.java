@@ -1,11 +1,9 @@
 package main_page.forms;
 
-import com.github.javafaker.Faker;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
-import com.microsoft.playwright.options.AriaRole;
 import manager.BaseHelper;
-import manager.PracticeFormInterface;
+import models.PracticeFormInterface;
 import models.PracticeFormModel;
 import org.testng.Assert;
 
