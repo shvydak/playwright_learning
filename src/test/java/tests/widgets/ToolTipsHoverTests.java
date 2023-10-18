@@ -39,10 +39,4 @@ public class ToolTipsHoverTests extends PlaywrightFactory {
         new ToolTips(page)
                 .hoverMeToSeeDateHoverTextContains("You hovered over the 1.10.32"); // assertion
     }
-
-    @AfterClass
-    public void returnToMainPage() {
-        new MainPage(page)
-                .goToMainPage();
-    }
 }

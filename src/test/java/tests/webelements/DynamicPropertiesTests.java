@@ -40,12 +40,6 @@ public class DynamicPropertiesTests extends PlaywrightFactory {
         new DynamicPropertiesPage(page)
                 .refrashThePage();
     }
-
-    @AfterClass
-    public void returnToMainPage() {
-        new MainPage(page)
-                .goToMainPage();
-    }
 }
 
 

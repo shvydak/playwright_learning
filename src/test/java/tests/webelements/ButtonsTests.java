@@ -43,10 +43,4 @@ public class ButtonsTests extends PlaywrightFactory {
         new MainPage(page)
                 .screenShotFUllPage();
     }
-
-    @AfterClass
-    public void goToMainPage() {
-        new MainPage(page)
-                .goToMainPage();
-    }
 }

@@ -34,10 +34,4 @@ public class UploadDownloadTests extends PlaywrightFactory {
         new MainPage(page)
                 .screenShotFUllPage();
     }
-
-    @AfterClass
-    public void goToHomePage() {
-        new MainPage(page)
-                .goToMainPage();
-    }
 }

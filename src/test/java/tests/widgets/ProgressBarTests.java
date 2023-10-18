@@ -28,11 +28,4 @@ public class ProgressBarTests extends PlaywrightFactory {
         new MainPage(page)
                 .screenShotFUllPage();
     }
-
-
-    @AfterClass
-    public void goToMainPage() {
-        new MainPage(page)
-                .goToMainPage();
-    }
 }

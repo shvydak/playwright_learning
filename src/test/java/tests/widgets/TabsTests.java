@@ -39,10 +39,4 @@ public class TabsTests extends PlaywrightFactory {
         new TabsPage(page)
                 .moreTabIsDisable();
     }
-
-    @AfterClass
-    public void returnToMainPage() {
-        new MainPage(page)
-                .goToMainPage();
-    }
 }

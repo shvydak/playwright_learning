@@ -34,10 +34,4 @@ public class AccordianTests extends PlaywrightFactory {
         new MainPage(page)
                 .screenShotFUllPage();
     }
-
-    @AfterClass
-    public void goToMainPage() {
-        new MainPage(page)
-                .goToMainPage();
-    }
 }

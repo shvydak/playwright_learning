@@ -23,11 +23,4 @@ public class PracticeFormTests extends PlaywrightFactory {
                 .fillPracticeForm(user)
                 .screenShotFUllPage(); //WO Assertion (the BUG present on the site)
     }
-
-    @AfterClass
-    public void goToMainPage() {
-        new MainPage(page)
-                .goToMainPage();
-    }
-
 }

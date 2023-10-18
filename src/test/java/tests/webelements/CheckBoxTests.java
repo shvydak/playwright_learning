@@ -28,11 +28,4 @@ public class CheckBoxTests extends PlaywrightFactory {
         new MainPage(page)
                 .screenShotFUllPage();
     }
-
-    @AfterClass
-    public void returnToMainPage() {
-        new MainPage(page)
-                .goToMainPage();
-    }
-
 }

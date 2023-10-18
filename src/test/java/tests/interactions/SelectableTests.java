@@ -93,10 +93,4 @@ public class SelectableTests extends PlaywrightFactory {
                 .unSelectMorbiLeoRisus()
                 .unSelectPortaAcConsecteturAc();
     }
-
-    @AfterClass
-    public void goToMainPage() {
-        new MainPage(page)
-                .goToMainPage();
-    }
 }

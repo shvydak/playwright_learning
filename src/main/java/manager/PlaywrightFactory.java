@@ -30,8 +30,8 @@ public class PlaywrightFactory {
 
     @AfterClass
     public void goToMainPage() {
-//        new MainPage(page)
-//                .goToMainPage();
+        new MainPage(page)
+                .goToMainPage();
     }
 
     @AfterSuite
