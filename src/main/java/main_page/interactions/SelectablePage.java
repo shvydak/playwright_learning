@@ -22,4 +22,17 @@ public class SelectablePage extends BaseHelper {
         Assert.assertEquals(titleText.textContent(), text);
         return this;
     }
+
+    public SelectablePage selectCrasJustoOdio() {
+        crasJustoOdio.click();
+        page.waitForCondition(() -> crasJustoOdio.getAttribute("class").equals("mt-2 list-group-item active list-group-item-action"));
+        Assert.assertEquals(page.locator("//li[@class='mt-2 list-group-item active list-group-item-action']").textContent(), "Cras justo odio");
+        return this;
+    }
+    public SelectablePage unSelectCrasJustoOdio(){
+        crasJustoOdio.click();
+        page.waitForCondition(()-> crasJustoOdio.getAttribute("class").equals("mt-2 list-group-item list-group-item-action"));
+        Assert.assertEquals(crasJustoOdio.getAttribute("class"), "mt-2 list-group-item list-group-item-action");
+        return this;
+    }
 }
