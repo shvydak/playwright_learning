@@ -72,14 +72,26 @@ public class SelectableTests extends PlaywrightFactory {
                 .unSelectPortaAcConsecteturAc();
     }
 
-    @Test(enabled = false)
+    @Test
     public void selectAll() {
         new SelectablePage(page)
                 .selectCrasJustoOdio()
                 .selectDapibusAcFacilisisin()
                 .selectMorbiLeoRisus()
+                .selectportaAcConsecteturAc();
+    }
+
+    @Test
+    public void unselectAll() {
+        new SelectablePage(page)
+                .selectCrasJustoOdio()
+                .selectDapibusAcFacilisisin()
+                .selectMorbiLeoRisus()
                 .selectportaAcConsecteturAc()
-                .screenShotFUllPage();
+                .unSelectCrasJustoOdio()
+                .unSelectDapibusAcFacilisisin()
+                .unSelectMorbiLeoRisus()
+                .unSelectPortaAcConsecteturAc();
     }
 
     @AfterClass

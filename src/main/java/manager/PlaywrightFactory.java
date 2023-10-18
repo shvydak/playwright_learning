@@ -1,6 +1,8 @@
 package manager;
 
 import com.microsoft.playwright.*;
+import main_page.MainPage;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
@@ -24,6 +26,12 @@ public class PlaywrightFactory {
 
         page = context.newPage();
         page.navigate("https://demoqa.com/");
+    }
+
+    @AfterClass
+    public void goToMainPage() {
+//        new MainPage(page)
+//                .goToMainPage();
     }
 
     @AfterSuite
