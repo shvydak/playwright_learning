@@ -1,80 +1,82 @@
 package tests.interactions;
 
 import main_page.MainPage;
-import main_page.interactions.SelectablePage;
+import main_page.interactions.SelectableListPage;
 import manager.PlaywrightFactory;
 import org.testng.annotations.*;
 
-public class SelectableTests extends PlaywrightFactory {
+public class SelectableListTests extends PlaywrightFactory {
     @BeforeClass
     public void openSelectablePage() {
         new MainPage(page)
                 .openInteractions()
                 .openSelectablePage()
                 .titleTextIs("Selectable");
+        new SelectableListPage(page)
+                .openListPage();
     }
 
     @BeforeMethod
     public void pageReload() {
-        new SelectablePage(page).reloadPage();
+        new SelectableListPage(page).reloadPage();
     }
 
     @Test
     public void selectTest() {
-        new SelectablePage(page)
+        new SelectableListPage(page)
                 .selectCrasJustoOdio()
                 .reloadPage();
     }
 
     @Test
     public void unselectCrasJustoOdio() {
-        new SelectablePage(page)
+        new SelectableListPage(page)
                 .selectCrasJustoOdio()
                 .unSelectCrasJustoOdio();
     }
 
     @Test
     public void selectDapibusAcFacilisisIn() {
-        new SelectablePage(page)
+        new SelectableListPage(page)
                 .selectDapibusAcFacilisisin();
     }
 
     @Test
     public void unselectDapibusAcFacilisisIn() {
-        new SelectablePage(page)
+        new SelectableListPage(page)
                 .selectDapibusAcFacilisisin()
                 .unSelectDapibusAcFacilisisin();
     }
 
     @Test
     public void selectMorbiLeoRisus() {
-        new SelectablePage(page)
+        new SelectableListPage(page)
                 .selectMorbiLeoRisus();
     }
 
     @Test
     public void unselectMorbiLeoRisus() {
-        new SelectablePage(page)
+        new SelectableListPage(page)
                 .selectMorbiLeoRisus()
                 .unSelectMorbiLeoRisus();
     }
 
     @Test
     public void selectPortaAcConsecteturAc() {
-        new SelectablePage(page)
+        new SelectableListPage(page)
                 .selectportaAcConsecteturAc();
     }
 
     @Test
     public void unselectPortaAcConsecteturAc() {
-        new SelectablePage(page)
+        new SelectableListPage(page)
                 .selectportaAcConsecteturAc()
                 .unSelectPortaAcConsecteturAc();
     }
 
     @Test
     public void selectAll() {
-        new SelectablePage(page)
+        new SelectableListPage(page)
                 .selectCrasJustoOdio()
                 .selectDapibusAcFacilisisin()
                 .selectMorbiLeoRisus()
@@ -83,7 +85,7 @@ public class SelectableTests extends PlaywrightFactory {
 
     @Test
     public void unselectAll() {
-        new SelectablePage(page)
+        new SelectableListPage(page)
                 .selectCrasJustoOdio()
                 .selectDapibusAcFacilisisin()
                 .selectMorbiLeoRisus()

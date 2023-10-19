@@ -5,8 +5,8 @@ import com.microsoft.playwright.Page;
 import manager.BaseHelper;
 import org.testng.Assert;
 
-public class SelectablePage extends BaseHelper {
-    public SelectablePage(Page page) {
+public class SelectableListPage extends BaseHelper {
+    public SelectableListPage(Page page) {
         super(page);
     }
 
@@ -18,54 +18,64 @@ public class SelectablePage extends BaseHelper {
     private final Locator morbiLeoRisus = page.locator("'Morbi leo risus'");
     private final Locator portaAcConsecteturAc = page.locator("'Porta ac consectetur ac'");
 
-    public SelectablePage titleTextIs(String text) {
+    public SelectableListPage titleTextIs(String text) {
         Assert.assertEquals(titleText.textContent(), text);
         return this;
     }
 
-    public SelectablePage selectCrasJustoOdio() {
+    public SelectableListPage openListPage() {
+        listTab.click();
+        return this;
+    }
+
+    public SelectableGridPage openGridPage() {
+        gridTab.click();
+        return new SelectableGridPage(page);
+    }
+
+    public SelectableListPage selectCrasJustoOdio() {
         crasJustoOdio.click();
         page.waitForCondition(() -> crasJustoOdio.getAttribute("class").equals("mt-2 list-group-item active list-group-item-action"));
         return this;
     }
 
-    public SelectablePage unSelectCrasJustoOdio() {
+    public SelectableListPage unSelectCrasJustoOdio() {
         crasJustoOdio.click();
         page.waitForCondition(() -> crasJustoOdio.getAttribute("class").equals("mt-2 list-group-item list-group-item-action"));
         return this;
     }
 
-    public SelectablePage selectDapibusAcFacilisisin() {
+    public SelectableListPage selectDapibusAcFacilisisin() {
         dapibusAcFacilisisin.click();
         page.waitForCondition(() -> dapibusAcFacilisisin.getAttribute("class").equals("mt-2 list-group-item active list-group-item-action"));
         return this;
     }
 
-    public SelectablePage unSelectDapibusAcFacilisisin() {
+    public SelectableListPage unSelectDapibusAcFacilisisin() {
         dapibusAcFacilisisin.click();
         page.waitForCondition(() -> dapibusAcFacilisisin.getAttribute("class").equals("mt-2 list-group-item list-group-item-action"));
         return this;
     }
 
-    public SelectablePage selectMorbiLeoRisus() {
+    public SelectableListPage selectMorbiLeoRisus() {
         morbiLeoRisus.click();
         page.waitForCondition(() -> morbiLeoRisus.getAttribute("class").equals("mt-2 list-group-item active list-group-item-action"));
         return this;
     }
 
-    public SelectablePage unSelectMorbiLeoRisus() {
+    public SelectableListPage unSelectMorbiLeoRisus() {
         morbiLeoRisus.click();
         page.waitForCondition(() -> morbiLeoRisus.getAttribute("class").equals("mt-2 list-group-item list-group-item-action"));
         return this;
     }
 
-    public SelectablePage selectportaAcConsecteturAc() {
+    public SelectableListPage selectportaAcConsecteturAc() {
         portaAcConsecteturAc.click();
         page.waitForCondition(() -> portaAcConsecteturAc.getAttribute("class").equals("mt-2 list-group-item active list-group-item-action"));
         return this;
     }
 
-    public SelectablePage unSelectPortaAcConsecteturAc() {
+    public SelectableListPage unSelectPortaAcConsecteturAc() {
         portaAcConsecteturAc.click();
         page.waitForCondition(() -> portaAcConsecteturAc.getAttribute("class").equals("mt-2 list-group-item list-group-item-action"));
         return this;

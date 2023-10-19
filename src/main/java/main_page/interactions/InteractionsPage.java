@@ -11,8 +11,8 @@ public class InteractionsPage extends BaseHelper {
 
     private final Locator selectableButton = page.locator("'Selectable'");
 
-    public SelectablePage openSelectablePage() {
+    public SelectableListPage openSelectablePage() {
         selectableButton.click();
-        return new SelectablePage(page);
+        return new SelectableListPage(page);
     }
 }
